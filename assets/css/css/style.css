@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.first-page-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer {
+  padding: 20px;
+}
+
+.button-start {
+  background-color: purple;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 30px;
+  position: absolute;
+  left: 40%;
+}
+
+.button-start:hover {
+  background-color: black;
+}
+
+.game-instructions {
+  width: 50%;
+  margin: auto;
+}
+
+.game-start {
+  position: relative;
+}
+
+.quiz-title {
+  font-size: 20px;
+  width: 50%;
+  margin: 30px auto;
+  text-align: center;
+  font-weight: bold; 
+}
