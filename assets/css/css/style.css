@@ -5,10 +5,26 @@
 .first-page-top {
   display: flex;
   justify-content: space-between;
+  background-color: black;
+}
+
+.high-score-link {
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  margin: 10px 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.high-score-link:hover{
+  color: yellow; 
 }
 
 .timer {
   padding: 20px;
+  color: white;
+  font-size: 30px;
+  margin: 10px 40px;
 }
 
 .button-start {
@@ -39,5 +55,14 @@
   width: 50%;
   margin: 30px auto;
   text-align: center;
-  font-weight: bold; 
+  font-weight: bold;
+}
+
+.question{
+  font-size: 40px; 
+  text-align: center; 
+  padding: 20px; 
+  margin: 30px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
 }

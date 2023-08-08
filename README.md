@@ -1,6 +1,6 @@
 # Code-Quiz
 
-Live Link: 
+Live Link: https://mjjust31.github.io/Code-Quiz/
 
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
@@ -42,3 +42,9 @@ THEN I can save my initials and score
 8. I see two buttons:
     i. When I click "go back", the quiz starts over. 
     ii. When I click "clear high scores", it clears all saved high scores.
+
+
+    Using Object methods to use as quiz info. I reviewed the following material to help me understand how to set up the object of quizInfo.
+    1.https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
+    2. https://www.youtube.com/watch?v=gnbzqtd2zgM
+    
