@@ -25,7 +25,14 @@ THEN I can save my initials and score
    a. the instructions are erased.
    b. the timer begins.
    c. View high scores in top left hand stay.
+- completed
 
+
+
+- fuctions for displaying questions (loop).
+-function for displaying choices. (loop).
+- need to verify the correct answer. 
+- If else statement for correct answer (add 10 points), else {deduct the time and deduct score}
 2. The first question appears. There are four options.
    a. when I click the correct answer, the question is removed and a new question appears. 
         i. the screen shows the user that the answer was correct.
@@ -33,6 +40,11 @@ THEN I can save my initials and score
   b. when I click the wrong answer, the question is removed and a new question apepars. 
         i. the scresn show the user that the answer was wrong. 
         ii. time is deducted from the timer.
+
+
+
+
+
 
 3. When the questions are complete. the quiz ends and the timer stops. 
 4. a score is calculated based on the correct answers.
@@ -47,4 +59,3 @@ THEN I can save my initials and score
     Using Object methods to use as quiz info. I reviewed the following material to help me understand how to set up the object of quizInfo.
     1.https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
     2. https://www.youtube.com/watch?v=gnbzqtd2zgM
-    

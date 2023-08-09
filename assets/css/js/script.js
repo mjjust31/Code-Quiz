@@ -12,18 +12,18 @@ var titlePage = document.querySelector(".game-start");
 
 var quizContainer = document.querySelector(".quiz-container");
 var question = document.querySelector(".question");
-
+var choices = document.querySelector(".choices");
 
 var quizInfo = [
   {
     question: "What does HTML mean?",
     choices: [
-      "Hyper Text Markup Language",
+      "Hypertext Markup Language",
       "How To Make Lasagna",
       "Hype Text Make Langauage",
       "Hyper Texting Makeup Language",
     ],
-    answer: "Hyper Text Markup Langague",
+    answer: "Hypertext Markup Language",
   },
 
   {
@@ -34,10 +34,11 @@ var quizInfo = [
 ];
 
 // console.log(quizInfo[0].question)
+//you can add a single event listener to the parent element and use event delegation to handle the click event for all the choices.
 
 //start of game and main-page
-var timeLeft = 30;
-var score = 0; 
+var timeLeft = 60;
+var score = 0;
 timer.textContent = timeLeft;
 title.textContent = "Code Quiz Challenge";
 highScoreLink.textContent = "View High Scores";
@@ -58,7 +59,18 @@ startButton.addEventListener("click", function () {
     }
   }, 1000);
 
- question.textContent = quizInfo[0].question;//rather than do each question. See if you can crate a for loop once you have the quiz set up.
+  question.textContent = quizInfo[0].question;
+  var mainList = document.querySelector("ul");
 
-
+  for (var i = 0; i < quizInfo[0].choices.length; i++) {
+    var choice = document.createElement("button");
+    choice.textContent = quizInfo[0].choices[i];
+    mainList.appendChild(choice);
+  }
 });
+
+// function displayQuestion (index){}
+
+// function correctAnswer (){
+//   if
+// }

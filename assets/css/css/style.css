@@ -12,12 +12,19 @@
   color: white;
   font-size: 20px;
   padding: 20px;
-  margin: 10px 40px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 15px 40px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  align-content: baseline;
 }
 
-.high-score-link:hover{
-  color: yellow; 
+.high-score-link:hover {
+  color: yellow;
+}
+
+.high-score-link:active {
+  box-shadow: 10px 10px 5px teal;
+  border-radius: 40px;
 }
 
 .timer {
@@ -58,11 +65,38 @@
   font-weight: bold;
 }
 
-.question{
-  font-size: 40px; 
-  text-align: center; 
-  padding: 20px; 
+.question {
+  font-size: 40px;
+  text-align: center;
+  padding: 20px;
   margin: 30px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.choices {
+  color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px 10px;
+  width: 40%;
+  margin: auto;
+}
+
+.choices button {
+  margin: 10px 10px;
+  color: purple;
+  padding: 10px 40px;
+  border-radius: 25px;
+  background-color: lightpink;
+}
+
+.choices button:hover {
+  background-color: green;
+}
+
+.choices button:active {
+  background-color: gray;
+  color: white;
 }
