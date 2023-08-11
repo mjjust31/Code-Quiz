@@ -3,16 +3,14 @@
 var navBar = document.querySelector(".first-page-top");
 var highScoreLink = document.querySelector(".high-score-link"); //needs to be a anchor tag
 var timer = document.querySelector(".timer");
-
 var instructions = document.querySelector(".game-instructions");
 var title = document.querySelector(".quiz-title");
 var startButton = document.querySelector(".button-start");
-
 var titlePage = document.querySelector(".game-start");
-
 var quizContainer = document.querySelector(".quiz-container");
-var question = document.querySelector(".question");
-var choices = document.querySelector(".choices");
+
+var questionIndex = 0;
+var choiceIndex = 0;
 
 var quizInfo = [
   {
@@ -23,13 +21,31 @@ var quizInfo = [
       "Hype Text Make Langauage",
       "Hyper Texting Makeup Language",
     ],
-    answer: "Hypertext Markup Language",
+    answer: 0,
   },
 
   {
     question: "Which one is known as a Primitive Data Type?",
     choices: ["Booleans", "Strings", "Number", "All of the Above"],
-    answer: "All of the Above",
+    answer: 3,
+  },
+
+  {
+    question: "Inside which HTML element do we put the JavaScript?",
+    choices: ["<js>", "<script>", "<javascript", "<scripting"],
+    answer: 1,
+  },
+  {
+    question:
+      "Which CSS property is used to change the text color of an element?",
+    choices: ["fgcolor", "text-color", "color", "font-color"],
+    answer: 2,
+  },
+
+  {
+    question: "Choose the correct HTML element for the largest heading:",
+    choices: ["<h6>", "<heading>", "<head>", "<h1>"],
+    answer: 3,
   },
 ];
 
@@ -58,19 +74,23 @@ startButton.addEventListener("click", function () {
       clearInterval(timeInterval);
     }
   }, 1000);
-
-  question.textContent = quizInfo[0].question;
-  var mainList = document.querySelector("ul");
-
-  for (var i = 0; i < quizInfo[0].choices.length; i++) {
-    var choice = document.createElement("button");
-    choice.textContent = quizInfo[0].choices[i];
-    mainList.appendChild(choice);
-  }
+  displayQuestionWithChoices(0);
 });
 
-// function displayQuestion (index){}
 
-// function correctAnswer (){
-//   if
-// }
+//this will display the question index when it is called with choices
+function displayQuestionWithChoices(quizInfoIndex) {
+  //
+  var questionEl = document.querySelector(".question");
+  questionEl.textContent = quizInfo[quizInfoIndex].question;
+
+  for (var i = 0; i < quizInfo[quizInfoIndex].choices.length; i++) {
+    var choiceButton = document.createElement("button");
+    choiceButton.textContent = quizInfo[quizInfoIndex].choices[i];
+    quizContainer.appendChild(choiceButton);
+  }
+}
+
+
+//create a function for all choices
+// var questionEl = document.getElementById(".question");

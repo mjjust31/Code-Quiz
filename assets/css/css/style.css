@@ -37,11 +37,12 @@
 .button-start {
   background-color: purple;
   color: white;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   margin: 30px;
   position: absolute;
-  left: 40%;
+  left: 42%;
+  font-size: 20px;
 }
 
 .button-start:hover {
@@ -51,18 +52,25 @@
 .game-instructions {
   width: 50%;
   margin: auto;
+  text-align: center;
+  line-height: 20px;
+  border: 2px solid red; 
+ padding: 30px; 
 }
 
 .game-start {
   position: relative;
+  margin: auto; 
 }
 
 .quiz-title {
-  font-size: 20px;
+  font-size: 30px;
   width: 50%;
   margin: 30px auto;
   text-align: center;
   font-weight: bold;
+  font-family: sans-serif;
+  color: rgb(56, 5, 56);
 }
 
 .question {
@@ -74,7 +82,7 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.choices {
+.quiz-container {
   color: black;
   display: flex;
   justify-content: center;
@@ -84,7 +92,7 @@
   margin: auto;
 }
 
-.choices button {
+.quiz-container button {
   margin: 10px 10px;
   color: purple;
   padding: 10px 40px;
@@ -92,11 +100,11 @@
   background-color: lightpink;
 }
 
-.choices button:hover {
+.quiz-container button:hover {
   background-color: green;
 }
 
-.choices button:active {
+.quiz-container button:active {
   background-color: gray;
   color: white;
 }
