@@ -54,13 +54,13 @@
   margin: auto;
   text-align: center;
   line-height: 20px;
-  border: 2px solid red; 
- padding: 30px; 
+  border: 2px solid red;
+  padding: 30px;
 }
 
 .game-start {
   position: relative;
-  margin: auto; 
+  margin: auto;
 }
 
 .quiz-title {
@@ -107,4 +107,13 @@
 .quiz-container button:active {
   background-color: gray;
   color: white;
+}
+
+.score {
+  color: black;
+  text-align: left;
+  padding: 50px;
+  font-size: 23px; 
+  margin: 10px 20px; 
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
