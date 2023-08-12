@@ -88,16 +88,18 @@
   justify-content: center;
   flex-direction: column;
   margin: 10px 10px;
-  width: 40%;
+  width: 70%;
   margin: auto;
 }
 
 .quiz-container button {
-  margin: 10px 10px;
+  margin: 15px auto;
   color: purple;
-  padding: 10px 40px;
+  padding: 15px 30px;
   border-radius: 25px;
   background-color: lightpink;
+  width: 30%;
+  font-size: 20px;
 }
 
 .quiz-container button:hover {
@@ -113,7 +115,36 @@
   color: black;
   text-align: left;
   padding: 50px;
-  font-size: 23px; 
-  margin: 10px 20px; 
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 23px;
+  margin: 10px 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.displayOutcome {
+  color: black;
+  font-size: 30px;
+  margin: auto;
+  text-align: left;
+  padding: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.highScoreBody {
+  background-color: rgb(76, 95, 95);
+  color: white;
+}
+
+.enterIntials {
+  display: flex;
+  margin: auto;
+  border-bottom: 1px solid gray;
+  width: 50%;
+  justify-content: center;
+}
+
+.enterIntials label {
+  margin: 15px;
+}
+.enterIntials input {
+  margin: 15px;
 }

@@ -52,3 +52,6 @@ ii. time is deducted from the timer.
 9. I wanted to see if I can could generate the questions randomly. I realized I needed to pass a function into the function displayQuestionWithChoices. Looked at this code to determine how to remove option from an array. https://stackoverflow.com/questions/37963358/how-can-i-make-a-random-array-with-no-repeats and incorporated it into my code.
 
 10. Had difficulty reoving the previous choice buttons. Came up with a solution to create a fuction and reuse it after click event for either right or wrong answer. 
+
+11. Review of forms for HTML https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit
+
