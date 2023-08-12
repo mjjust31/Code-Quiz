@@ -82,7 +82,7 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.quiz-container {
+.quizContainer {
   color: black;
   display: flex;
   justify-content: center;
@@ -92,7 +92,7 @@
   margin: auto;
 }
 
-.quiz-container button {
+.quizContainer button {
   margin: 15px auto;
   color: purple;
   padding: 15px 30px;
@@ -102,11 +102,11 @@
   font-size: 20px;
 }
 
-.quiz-container button:hover {
+.quizContainer button:hover {
   background-color: green;
 }
 
-.quiz-container button:active {
+.quizContainer button:active {
   background-color: gray;
   color: white;
 }
@@ -147,4 +147,34 @@
 }
 .enterIntials input {
   margin: 15px;
+}
+
+.scoreContainer {
+  margin: 50px auto;
+  text-align: center;
+  font-size: 50px;
+  border: 1px solid white;
+  width: 60%;
+  padding: 25px;
+}
+
+.localeStorage {
+  padding: 50px;
+}
+
+.scoreContainer button {
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 20%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.scoreContainer button:hover {
+  font-style: italic;
+  background-color: rgb(192, 167, 186);
+}
+
+.scoreContainer button:active {
+  color: white;
 }

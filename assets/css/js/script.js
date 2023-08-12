@@ -7,9 +7,9 @@ var instructions = document.querySelector(".game-instructions");
 var title = document.querySelector(".quiz-title");
 var startButton = document.querySelector(".button-start");
 var titlePage = document.querySelector(".game-start");
-var quizContainer = document.querySelector(".quiz-container");
+var quizContainer = document.querySelector(".quizContainer");
 var scoreEl = document.querySelector(".score");
-var enterIntials = document.querySelector(".enterIntials")
+var enterIntials = document.querySelector(".enterIntials");
 
 var quizInfoIndex = 0;
 
@@ -67,7 +67,6 @@ instructions.textContent =
 
 //start of quiz
 function startGame(event) {
-  event.preventDefault();
   titlePage.setAttribute("style", "display:none");
   timerEl.textContent = timeLeft;
 
@@ -95,13 +94,6 @@ function displayQuestionWithChoices(quizInfoIndex) {
     quizContainer.appendChild(choiceButton);
   }
   displayAnswer();
-
-  if (quizInfoIndex >=  quizInfoIndex.length || timeLeft === 0) {
-    quizContainer.textContent.setAttribute("style", "display:none");
-    enterIntials.setAttribute("style", "display:block");
-
-  }
-  
 }
 
 function displayAnswer(event) {
@@ -113,7 +105,7 @@ function displayAnswer(event) {
   if (choiceButton.matches("button")) {
     // console.log(choiceButton.textContent)
     if (choiceButton.textContent === quizInfo[quizInfoIndex].answer) {
-      displayOutcome.textContent = "Correct Answer!";
+      displayOutcome.textContent = "Correct!";
       displayOutcome.setAttribute("style", "color:green;");
       score += 10;
       scoreEl.textContent = "Score: " + score;
@@ -121,7 +113,7 @@ function displayAnswer(event) {
     } else {
       // console.log("incorrect answer");
       timeLeft -= 15;
-      displayOutcome.textContent = "Wrong";
+      displayOutcome.textContent = "Wrong :(";
       displayOutcome.setAttribute("style", "color:red; font-style:italic;");
       score -= 3;
       scoreEl.textContent = "Score: " + score;
@@ -138,9 +130,9 @@ quizContainer.addEventListener("click", displayAnswer);
 //needs a condition statement to ensure when questionInfoIndex is complete, it takes them to the high score page.
 //resuable code in two placed for removing previous buttons.
 function removeButtons() {
-  var removeButtons = document.querySelectorAll("button");
-  removeButtons.forEach(function (removeButtons) {
-    removeButtons.remove();
+  var removeButtons = document.querySelectorAll ("button");
+  removeButtons.forEach(function (button) {
+  button.remove();
   });
 }
 
