@@ -10,8 +10,7 @@ var titlePage = document.querySelector(".game-start");
 var quizContainer = document.querySelector(".quizContainer");
 var scoreEl = document.querySelector(".score");
 var enterIntials = document.querySelector(".enterIntials");
-
-var quizInfoIndex = 0;
+var displayOutcome = document.querySelector(".displayOutcome");
 
 var quizInfo = [
   {
@@ -54,19 +53,25 @@ var quizInfo = [
 //you can add a single event listener to the parent element and use event delegation to handle the click event for all the choices.
 
 //start of game and main-page
-var timeLeft = 70;
+
+var timeLeft = 5;
 var score = 0;
-timerEl.textContent = timeLeft;
-title.textContent = "Code Quiz Challenge";
-highScoreLink.textContent = "View High Scores";
-scoreEl.textContent = "Score: " + score;
-enterIntials.setAttribute("style", "display:none");
+var quizInfoIndex = 0;
 
-instructions.textContent =
-  "Try to answer the following code-related questions withing the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
+function init() {
+  timerEl.textContent = timeLeft;
+  title.textContent = "Code Quiz Challenge";
+  highScoreLink.textContent = "View High Scores";
+  scoreEl.textContent = "Score: " + score;
+  enterIntials.setAttribute("style", "display:none");
 
+  instructions.textContent =
+    "Try to answer the following code-related questions withing the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
+
+  startButton.addEventListener("click", startQuiz);
+}
 //start of quiz
-function startGame(event) {
+function startQuiz() {
   titlePage.setAttribute("style", "display:none");
   timerEl.textContent = timeLeft;
 
@@ -81,14 +86,11 @@ function startGame(event) {
   displayQuestionWithChoices(quizInfoIndex);
 }
 
-startButton.addEventListener("click", startGame);
-
 //this will display the question index when it is called with choices
 function displayQuestionWithChoices(quizInfoIndex) {
-  var questionEl = document.querySelector(".question");
-  questionEl.textContent = quizInfo[quizInfoIndex].question;
-
   for (var i = 0; i < quizInfo[quizInfoIndex].choices.length; i++) {
+    var questionEl = document.querySelector(".question");
+    questionEl.textContent = quizInfo[quizInfoIndex].question;
     var choiceButton = document.createElement("button");
     choiceButton.textContent = quizInfo[quizInfoIndex].choices[i];
     quizContainer.appendChild(choiceButton);
@@ -97,45 +99,53 @@ function displayQuestionWithChoices(quizInfoIndex) {
 }
 
 function displayAnswer(event) {
-  event.preventDefault();
+  // event.preventDefault();
   var choiceButton = event.target;
-  var displayOutcome = document.querySelector(".displayOutcome");
-
-  // console.log(quizInfoIndex);
   if (choiceButton.matches("button")) {
-    // console.log(choiceButton.textContent)
     if (choiceButton.textContent === quizInfo[quizInfoIndex].answer) {
-      displayOutcome.textContent = "Correct!";
-      displayOutcome.setAttribute("style", "color:green;");
-      score += 10;
-      scoreEl.textContent = "Score: " + score;
-      removeButtons();
+      correctAnswer();
     } else {
-      // console.log("incorrect answer");
-      timeLeft -= 15;
-      displayOutcome.textContent = "Wrong :(";
-      displayOutcome.setAttribute("style", "color:red; font-style:italic;");
-      score -= 3;
-      scoreEl.textContent = "Score: " + score;
-      removeButtons();
+      wrongAnswer();
     }
-
     quizInfoIndex++;
     displayQuestionWithChoices(quizInfoIndex);
-
-    //cycles through questions, but keeps all buttons created
   }
 }
+
 quizContainer.addEventListener("click", displayAnswer);
-//needs a condition statement to ensure when questionInfoIndex is complete, it takes them to the high score page.
-//resuable code in two placed for removing previous buttons.
+
+function correctAnswer() {
+  displayOutcome.textContent = "Correct!";
+  displayOutcome.setAttribute("style", "color:green;");
+  score += 10;
+  scoreEl.textContent = "Score: " + score;
+  removeButtons();
+}
+
+function wrongAnswer() {
+  timeLeft -= 10;
+  displayOutcome.textContent = "Wrong :(";
+  displayOutcome.setAttribute("style", "color:red; font-style:italic;");
+  score -= 3;
+  scoreEl.textContent = "Score: " + score;
+  removeButtons();
+}
+
 function removeButtons() {
-  var removeButtons = document.querySelectorAll ("button");
+  var removeButtons = document.querySelectorAll("button");
   removeButtons.forEach(function (button) {
-  button.remove();
+    button.remove();
   });
 }
 
+init();
+
+// function highScorePage() {
+//   if (timeLeft === 0 || quizInfoIndex >= quizInfo.length) {
+//  console.log("it's working");
+
+//   }
+// }
 
 //can I cratea random index number to pull the question randomly?
 //will need an if statement of what to do when array is gone.
