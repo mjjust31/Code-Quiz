@@ -178,3 +178,15 @@
 .scoreContainer button:active {
   color: white;
 }
+
+.last-page {
+  display: none;
+}
+
+.allDone {
+  text-align: center;
+  margin: 20px;
+  padding: 16px;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}

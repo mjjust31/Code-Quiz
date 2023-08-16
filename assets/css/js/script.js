@@ -1,5 +1,3 @@
-//set up prior to click
-
 var navBar = document.querySelector(".first-page-top");
 var highScoreLink = document.querySelector(".high-score-link"); //needs to be a anchor tag
 var timerEl = document.querySelector(".timer");
@@ -11,6 +9,8 @@ var quizContainer = document.querySelector(".quizContainer");
 var scoreEl = document.querySelector(".score");
 var enterIntials = document.querySelector(".enterIntials");
 var displayOutcome = document.querySelector(".displayOutcome");
+var lastPage = document.querySelector(".last-page");
+var submitFormEl = document.getElementById("#submitForm");
 
 var quizInfo = [
   {
@@ -49,12 +49,7 @@ var quizInfo = [
   },
 ];
 
-// console.log(quizInfo[0].question)
-//you can add a single event listener to the parent element and use event delegation to handle the click event for all the choices.
-
-//start of game and main-page
-
-var timeLeft = 5;
+var timeLeft = 15;
 var score = 0;
 var quizInfoIndex = 0;
 
@@ -63,8 +58,6 @@ function init() {
   title.textContent = "Code Quiz Challenge";
   highScoreLink.textContent = "View High Scores";
   scoreEl.textContent = "Score: " + score;
-  enterIntials.setAttribute("style", "display:none");
-
   instructions.textContent =
     "Try to answer the following code-related questions withing the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
 
@@ -81,6 +74,7 @@ function startQuiz() {
 
     if (timeLeft === 0) {
       clearInterval(timeInterval);
+      highScoreForm();
     }
   }, 1000);
   displayQuestionWithChoices(quizInfoIndex);
@@ -95,24 +89,38 @@ function displayQuestionWithChoices(quizInfoIndex) {
     choiceButton.textContent = quizInfo[quizInfoIndex].choices[i];
     quizContainer.appendChild(choiceButton);
   }
+  quizContainer.addEventListener("click", displayAnswer);
   displayAnswer();
 }
 
 function displayAnswer(event) {
-  // event.preventDefault();
-  var choiceButton = event.target;
-  if (choiceButton.matches("button")) {
-    if (choiceButton.textContent === quizInfo[quizInfoIndex].answer) {
+  var selected = event.target;
+  if (selected.matches("button")) {
+    if (selected.textContent === quizInfo[quizInfoIndex].answer) {
       correctAnswer();
     } else {
       wrongAnswer();
     }
-    quizInfoIndex++;
-    displayQuestionWithChoices(quizInfoIndex);
   }
+
+  quizInfoIndex++;
+  displayQuestionWithChoices(quizInfoIndex);
 }
 
 quizContainer.addEventListener("click", displayAnswer);
+
+function highScoreForm() {
+  quizContainer.setAttribute("style", "display:none");
+  var finalMessage = document.querySelector(".allDone");
+  finalMessage.textContent =
+    "All done! Enter your initials and save your final score!";
+
+  var state = lastPage.getAttribute("data-state");
+  if (state === "hidden") {
+    lastPage.setAttribute("style", "display:block");
+  };
+ //this works whent he time enters o. just not when it's the last question of the index.
+}
 
 function correctAnswer() {
   displayOutcome.textContent = "Correct!";
@@ -138,10 +146,27 @@ function removeButtons() {
   });
 }
 
+// function handleFormSubmit(event) {
+//   event.preventDefault();
+//   var scoreList = document.createElement("li");
+//   var highScoreEl = document.querySelector(".highScoreList");
+
+//   var initialsEl = document.getElementbyId("#initials");
+//   var initials = initialsEl.value();
+//   scoreList.innerHTML = initials + score;
+//   document.highScoreEl.appendChild(scoreList);
+//   initials.value("");
+
+//   localeStorage.setItem("finalScore", score);
+//   localeStorage.setItem("initials", initials);
+// }
+
+// submitFormEl.addEventListener("submit", handleFormSubmit);
+
 init();
 
 // function highScorePage() {
-//   if (timeLeft === 0 || quizInfoIndex >= quizInfo.length) {
+//   if (timeLeft === 0 || quizInfoIndex >= quizInfo.length-1) {
 //  console.log("it's working");
 
 //   }
