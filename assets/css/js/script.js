@@ -1,17 +1,3 @@
-var navBar = document.querySelector(".first-page-top");
-var highScoreLink = document.querySelector(".high-score-link"); //needs to be a anchor tag
-var timerEl = document.querySelector(".timer");
-var instructions = document.querySelector(".game-instructions");
-var title = document.querySelector(".quiz-title");
-var startButton = document.querySelector(".button-start");
-var titlePage = document.querySelector(".game-start");
-var quizContainer = document.querySelector(".quizContainer");
-var scoreEl = document.querySelector(".score");
-var enterIntials = document.querySelector(".enterIntials");
-var displayOutcome = document.querySelector(".displayOutcome");
-var lastPage = document.querySelector(".last-page");
-var submitFormEl = document.getElementById("#submitForm");
-
 var quizInfo = [
   {
     question: "What does HTML mean?",
@@ -49,7 +35,21 @@ var quizInfo = [
   },
 ];
 
-var timeLeft = 15;
+var navBar = document.querySelector(".first-page-top");
+var highScoreLink = document.querySelector(".high-score-link"); //needs to be a anchor tag
+var timerEl = document.querySelector(".timer");
+var instructions = document.querySelector(".game-instructions");
+var title = document.querySelector(".quiz-title");
+var startButton = document.querySelector(".button-start");
+var titlePage = document.querySelector(".game-start");
+var quizContainer = document.querySelector(".quizContainer");
+var scoreEl = document.querySelector(".score");
+var enterIntials = document.querySelector(".enterIntials");
+var displayOutcome = document.querySelector(".displayOutcome");
+var lastPage = document.querySelector(".last-page");
+var submitFormEl = document.getElementById("submitForm");
+
+var timeLeft = 70;
 var score = 0;
 var quizInfoIndex = 0;
 
@@ -75,10 +75,14 @@ function startQuiz() {
     if (timeLeft === 0) {
       clearInterval(timeInterval);
       highScoreForm();
+    } else if (quizInfoIndex > quizInfo.length - 1) {
+      clearInterval(timeInterval);
+      highScoreForm();
     }
   }, 1000);
   displayQuestionWithChoices(quizInfoIndex);
 }
+
 
 //this will display the question index when it is called with choices
 function displayQuestionWithChoices(quizInfoIndex) {
@@ -118,8 +122,8 @@ function highScoreForm() {
   var state = lastPage.getAttribute("data-state");
   if (state === "hidden") {
     lastPage.setAttribute("style", "display:block");
-  };
- //this works whent he time enters o. just not when it's the last question of the index.
+  }
+  //this works whent he time enters o. just not when it's the last question of the index.
 }
 
 function correctAnswer() {
@@ -146,22 +150,22 @@ function removeButtons() {
   });
 }
 
-// function handleFormSubmit(event) {
-//   event.preventDefault();
-//   var scoreList = document.createElement("li");
-//   var highScoreEl = document.querySelector(".highScoreList");
+function handleFormSubmit(event) {
+  event.preventDefault();
 
-//   var initialsEl = document.getElementbyId("#initials");
-//   var initials = initialsEl.value();
-//   scoreList.innerHTML = initials + score;
-//   document.highScoreEl.appendChild(scoreList);
-//   initials.value("");
+  var scoreList = document.createElement("li");
+  var initials = document.getElementById("initials").value;
 
-//   localeStorage.setItem("finalScore", score);
-//   localeStorage.setItem("initials", initials);
-// }
+  var highScoreEl = document.getElementById("highScoreList");
+  highScoreEl.appendChild(scoreList);
 
-// submitFormEl.addEventListener("submit", handleFormSubmit);
+  document.getElementById("initials").value = "";
+
+  localStorage.setItem("score", score);
+  localStorage.setItem("initials", initials);
+}
+
+submitFormEl.addEventListener("submit", handleFormSubmit);
 
 init();
 

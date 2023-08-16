@@ -190,3 +190,13 @@
   font-size: 20px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
+
+#submitForm {
+text-align: center;
+margin: 5px;
+padding: 5px;
+}
+
+#submitForm input {
+  margin: 5px; 
+}
