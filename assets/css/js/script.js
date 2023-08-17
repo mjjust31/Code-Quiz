@@ -68,6 +68,7 @@ function init() {
 function startQuiz() {
   titlePage.setAttribute("style", "display:none");
   timerEl.textContent = timeLeft;
+  scoreEl.textContent = "Score: " + score;
 
   var timeInterval = setInterval(function () {
     timeLeft--;
@@ -98,7 +99,7 @@ function scoreByTime() {
   }
 }
 
-scoreEl.textContent = "Score: " + score;
+
 // var quizContainer= document.querySelector(".answerContainer");
 //this will display the question index when it is called with choices
 function displayQuestionWithChoices(quizInfoIndex) {
@@ -170,34 +171,31 @@ function removeButtons() {
   });
 }
 
-// function removeButtons() {
-//   while (answerContainerEl.firstchild) {
-//     answerContainerEl.removeChild(answerContainerEl.firstChild);
-//   }
-// }
 var saveHighScoreEl = document.querySelector(".saveHighScore");
 
 saveHighScoreEl.addEventListener("click", function (event) {
   event.preventDefault();
 
-  var initialsEl = document.getElementById("initials").value.trim();
+  var initialsEl = document.getElementById("initials");
 
   var finalScore = {
     score: score,
-    initials: initialsEl.value,
+    initials: initialsEl.value.trim(),
   };
   localStorage.setItem("finalScore", JSON.stringify(finalScore));
-  initialsEl.value = "";
+  // initialsEl.value = "";
   window.location.href = "./highScore.html";
 });
 
-function renderHighScore() {
-  var lastFinalScore = JSON.parse(localStorage.getItem("finalScore"));
-  if (finalScore !== null) {
-    var listItem = document.createElement("li");
-    listItem.textContent = quizInfo[quizInfoIndex].choices[i];
-  }
-}
+
+
+// function renderHighScore() {
+//   var lastFinalScore = JSON.parse(localStorage.getItem("finalScore"));
+//   if (finalScore !== null) {
+//     var listItem = document.createElement("li");
+//     listItem.textContent = quizInfo[quizInfoIndex].choices[i];
+//   }
+// }
 
 // function getFromLocal() {
 //   localStorage.setItem("score", score);
@@ -246,3 +244,10 @@ init();
 // var randomQuestionSet = randomQuestionGenerator();
 
 //next we will need to verify the user's click with the corrct answer.
+
+
+// function removeButtons() {
+//   while (answerContainerEl.firstchild) {
+//     answerContainerEl.removeChild(answerContainerEl.firstChild);
+//   }
+// }
