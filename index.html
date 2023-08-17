@@ -20,8 +20,8 @@
     </section>
 
     <section class="quizContainer">
-      <h2 class="question"></h2>
-      <!-- <h3 class="displayOutcome"></h3> -->
+      <div class="question"></div>
+      <div class="answerContainer"></div>
     </section>
 
     <section>
@@ -29,14 +29,15 @@
       <h3 class="score"></h3>
     </section>
 
-    <section class="last-page" data-state = "hidden">
+    <section class="last-page" data-state="hidden">
       <h2 class="allDone"></h2>
       <h3 class="finalScore"></h3>
-      <form id="submitForm">
-        <label for="initials">Enter Initials:</label><br />
-        <input type="text" id="initials"/><br />
-        <input type="submit" value="Submit" />
-      </form>
+
+      <section id="submitForm">
+        <label for="initials">Enter Initials:</label>
+        <input type="text" id="initials" />
+        <button class="saveHighScore">Save High Score</button>
+      </section>
     </section>
 
     <script src="./assets/css/js/script.js"></script>

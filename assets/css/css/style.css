@@ -92,6 +92,12 @@
   margin: auto;
 }
 
+.answerContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .quizContainer button {
   margin: 15px auto;
   color: purple;
