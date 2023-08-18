@@ -54,7 +54,7 @@
   margin: auto;
   text-align: center;
   line-height: 20px;
-  border: 2px solid red;
+  border: 2px solid rgb(74, 53, 66);
   padding: 30px;
 }
 
@@ -109,11 +109,12 @@
 }
 
 .quizContainer button:hover {
-  background-color: green;
+  background-color: rgb(58, 58, 58);
+  color: white; 
 }
 
 .quizContainer button:active {
-  background-color: gray;
+  background-color: rgb(3, 93, 16);
   color: white;
 }
 
@@ -200,9 +201,24 @@
 #submitForm {
 text-align: center;
 margin: 5px;
-padding: 5px;
+padding: 20px;
+background-color: antiquewhite;
+
 }
 
 #submitForm input {
   margin: 5px; 
+  rgb(255, 255, 255);
+  
+}
+
+#submitForm button {
+ padding: 10px; 
+ border-radius: 20px;
+}
+
+#highScoreList li {
+  font-size: 30px; 
+  margin: 40px; 
+  padding: 15px; 
 }

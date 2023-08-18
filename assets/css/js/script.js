@@ -99,7 +99,6 @@ function scoreByTime() {
   }
 }
 
-
 // var quizContainer= document.querySelector(".answerContainer");
 //this will display the question index when it is called with choices
 function displayQuestionWithChoices(quizInfoIndex) {
@@ -121,10 +120,8 @@ function displayAnswer(event) {
   if (selected.matches("button")) {
     if (selected.textContent === quizInfo[quizInfoIndex].answer) {
       correctAnswer();
-      removeButtons();
     } else {
       wrongAnswer();
-      removeButtons();
     }
   }
   removeButtons();
@@ -164,9 +161,10 @@ function wrongAnswer() {
 
 function removeButtons() {
   var answerContainerEl = document.querySelector(".answerContainer");
-  var buttons = answerContainerEl.querySelectorAll("button");
+  var buttons = answerContainerEl.querySelectorAll("button"); //select all buttons in the parent of answerContainEl
 
   buttons.forEach(function (button) {
+    //passes throught the parameter of button.
     button.remove();
   });
 }
@@ -183,19 +181,27 @@ saveHighScoreEl.addEventListener("click", function (event) {
     initials: initialsEl.value.trim(),
   };
   localStorage.setItem("finalScore", JSON.stringify(finalScore));
-  // initialsEl.value = "";
+  initialsEl.value = "";
   window.location.href = "./highScore.html";
+  renderHighScore();
 });
 
-
+// var restartEl = document.getElementById("restart");
+// // var scoreContainerEl = document.querySelector(".scoreContainer")
+// scoreContainerEl.addEventListener("click", function () {
+//   window.location.href = "./index.html";
+// });
 
 // function renderHighScore() {
 //   var lastFinalScore = JSON.parse(localStorage.getItem("finalScore"));
-//   if (finalScore !== null) {
+//   if (lastFinalScore !== null) {
 //     var listItem = document.createElement("li");
-//     listItem.textContent = quizInfo[quizInfoIndex].choices[i];
+//     listItem.textContent = finalScore.score + finalScore.initials;
+//     var highScoreEl = document.getElementById("highScoreList");
+//     highScoreEl.appendChild(listItem)
+
 //   }
-// }
+// };
 
 // function getFromLocal() {
 //   localStorage.setItem("score", score);
@@ -213,9 +219,6 @@ init();
 
 //   var scoreList = document.createElement("li");
 //   var initials = document.getElementById("initials").value;
-
-//   var highScoreEl = document.getElementById("highScoreList");
-//   highScoreEl.appendChild(scoreList);
 
 //   document.getElementById("initials").value = "";
 
@@ -244,7 +247,6 @@ init();
 // var randomQuestionSet = randomQuestionGenerator();
 
 //next we will need to verify the user's click with the corrct answer.
-
 
 // function removeButtons() {
 //   while (answerContainerEl.firstchild) {
